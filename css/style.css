@@ -1,0 +1,46 @@
+/* reset the default browser style */
+* {
+  margin: 0px;
+  /* font-family: 'Mohave', sans-serif; */
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  color: #000000;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+h1, h2, h3{
+  font-weight: 500;
+}
+
+h1 {
+  /* font-family: Mohave; */
+  font-style: normal;
+  /* font-weight: 500; */
+  font-size: 32px;
+  /* line-height: 45px; */
+  color: #F5E6E6;
+}
+h2{
+  font-size: 28px;
+}
+h3{
+  font-size: 24px;
+}
+h4{
+  font-size: 20px;
+}
+
+/* actual CSS */
+#site-header{
+  background-color: #F5E6E6;
+  /* don't declare height early on. let things fall in place on their own */
+  padding: 20px; /*  */
+}
+.socials{
+  list-style-type: none;
+  display: inline-block;
+}
