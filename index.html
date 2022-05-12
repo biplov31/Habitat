@@ -5,34 +5,162 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nature Blog</title>
-  <link type="css/text" rel="stylesheet" href="./css/style.css">
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Habitat</title>
+  <link type="text/css" rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&display=swap" rel="stylesheet"> -->
-  <link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Mohave:wght@300&display=swap" rel="stylesheet">
+  <script src="./js/carousel.js" defer></script>
+  <script src="./js/videoPlayer.js" defer></script>
+  <script src="./js/signup.js" defer></script>
 </head>
 
 <body>
-  <header id="site-header"></header>
-  <nav>
-    <ul>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="explore.html">Explore</a></li>
-      <li><a href="joinus.html">Join us!</a></li>
-    </ul>
-  </nav>
-  <img class="bg-img" src="./img/sunset.jpg" alt="Sunset" width="100%">
-  <footer id="site-footer">
-    <ul class="socials">
-      <li><a href="https://facebook.com"><img src="./img/icons/facebook.svg"></a></li>
-      <li><a href="https://youtube.com"><img src="./img/icons/youtube.png" height=30></a></li>
-      <li><a href="https://twitter.com"><img src="./img/icons/twitter.svg"></a></li>
-      <li><a href="https://instagram.com"><img src="./img/icons/instagram.svg"></a></li>
-    </ul>
+  <div class="container">
+    <header id="site-header">
+      <div class="page-header"> 
+        <!-- <div class="hamburger"><a href="#"><img src="./img/logo/hamburger.png"></a></div> -->
+        <div class="logo"><img src="./img/logo/logo.png" alt="logo"></div>
+        <img src="./img/logo/animals.png" alt="animals">
+      </div>  
+    </header>
 
-  </footer>
+    <section class="first-sec">
+      <nav>  
+        <ul class="navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="#video-gallery">Explore</a></li>
+          <li><a href="#site-footer">Join Us</a></li>
+        </ul>
+      </nav>
+      <h2 class="find-out">Come find out where<br>you truly belong!</h2>
+      <img class="bg-img" src="./img/sunset.jpg" alt="Sunset" width="100%">
+    </section>
+
+    <div class="description">
+      <p>Join our community and get to experience the most surreal elements that nature has to offer. This is the best place to get in touch with reality and realize your innate nature as a human being! Sign up right now; it's never too soon to start living.</p>
+    </div>
+
+<!-- video player  -->
+
+    <section id="video-gallery">
+      <div class="video-gallery">
+        <div class="vid-thumbnail thumb-img1">
+          <img src="./thumbnails/vid1.png">
+          <div class="img-overlay">
+            <div class="play-btn"><img src="./img/icons/play.svg" alt=""></div>
+          </div>
+        </div>
+        <div class="vid-thumbnail thumb-img2">
+          <img src="./thumbnails/vid2.png">
+          <div class="img-overlay">
+            <div class="play-btn"><img src="./img/icons/play.svg" alt=""></div>
+          </div>
+        </div>
+        <div class="vid-thumbnail thumb-img3">
+          <img src="./thumbnails/vid3.png">
+          <div class="img-overlay">
+            <div class="play-btn"><img src="./img/icons/play.svg" alt=""></div>
+          </div>
+        </div>
+        <div class="vid-thumbnail thumb-img4">
+          <img src="./thumbnails/vid4.png">
+          <div class="img-overlay">
+            <div class="play-btn"><img src="./img/icons/play.svg" alt=""></div>
+          </div>
+        </div>
+        <div class="vid-thumbnail thumb-img5">
+          <img src="./thumbnails/vid5.png">
+          <div class="img-overlay">
+            <div class="play-btn"><img src="./img/icons/play.svg" alt=""></div>
+          </div>
+        </div>
+      </div> 
+       
+      <div class="video-player">
+        <video src="" class="video-content" controls autoplay></video>
+        <img src="./img/icons/close2.svg" class="close-btn">
+      </div>
+
+    </section>
+
+
+    <!-- carousels -->
+    <div class="stories"><h2>Stories</h2></div>
+    <section class="stories-carousel">
+      <div class="carousel-container">
+        <ul class="carousel-list">
+          <li class="carousel-slide current-slide">
+            <div class="carousel-content">
+              <div class="carousel-img"><img src="./carousel/desert.jpg" alt=""></div>
+              <div class="carousel-txt">
+                <h2>Let the Sand of the Desert Sweep You Away</h2>
+                <span>November 23, 2021</span>
+                <p>To places you have never been and things you have never seen. Witness the bewilderment and thrill in moving forward without a direction, making choices on the fly.</p>
+              </div>
+            </div>
+          </li>
+          <li class="carousel-slide">
+            <div class="carousel-content">
+              <div class="carousel-img"><img src="./carousel/lake.jpg" alt=""></div>
+              <div class="carousel-txt">
+                <h2>Dive Deeper into the Unknown</h2>
+                <span>January 15, 2022</span>
+                <p>The tranquility of a lake is unprecedented by anything else in this world. Go out there and give your mind a break from all the deafening noises with just the soothing sound of breeze.</p>
+              </div>
+            </div> 
+          </li>
+          <li class="carousel-slide">
+            <div class="carousel-content">
+              <div class="carousel-img"><img src="./carousel/mountains.jpg" alt=""></div>
+              <div class="carousel-txt">
+                <h2>Take a Look at Life From Above</h2>
+                <span>April 03, 2022</span>
+                <p>Contemplating life from the top of the Himalayas will not only help you realize how insignificant we and our little problems are, but also teach you to be grateful and make every second count.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- double hyphen in a class name is a modifier. with this we are just adding extra attribures to the original class of button -->
+      <button class="carousel-btn carousel-btn--left is-hidden"><img src="./carousel/left-btn.svg" alt=""></button>
+      <button class="carousel-btn carousel-btn--right"><img src="./carousel/right-btn.svg" alt=""></button> 
+    </section>
+    
+
+    <!-- footer -->
+    <footer id="site-footer">
+      <div class="site-footer">
+        <div class="footer-info">
+          <div class="left-text">
+            <h3>Our Mission</h3>
+            <p>Our sole objective has been to aid people in getting in touch with the reality of the world and help them thrive in the environment they feel the most inspired in.</p>
+          </div>
+          <div class="middle-text">
+            <h3>Our Vision</h3>
+            <p>We aspire to help connect people with their soul. With all the chaos in the world, it is very easy to go astray and get lost into the void. We redirect people to their true purpose in life.</p>
+          </div>
+          <div class="right-text">
+            <h3>Help the Cause</h3>
+            <p>Make a donation to help fund the programs we conduct. Better yet, participate in the events whenever you are able to. Spread the word and help us reach out to more people!</p>
+          </div>
+        </div>
+        <span>Subscribe to our Newsletter</span>
+        <div class="email-form">
+          <input type="email" placeholder="Enter your email here">
+          <button class="signup-btn">Sign Up</button>
+          <img class="happy-gif" src="./img/happyGif.gif" alt="">
+        </div>  
+        <ul class="socials">
+          <!-- <span>Find us on: </span> -->
+          <li><a href="https://twitter.com" target="_blank"><img src="./img/icons/twitter.svg" alt="twitter"></a></li>
+          <li><a href="https://instagram.com" target="_blank"><img src="./img/icons/instagram.svg" alt="instagram"></a></li>
+          <li><a href="https://facebook.com" target="_blank"><img src="./img/icons/facebook.svg" alt="facebook"></a></li>
+          <li><a href="https://youtube.com" target="_blank"><img src="./img/icons/youtube.png" height=30 alt="youtube"></a></li>
+        </ul>
+      </div>  
+    </footer>
+  </div> 
 </body>
 
 </html>

@@ -1,46 +1,555 @@
 /* reset the default browser style */
-* {
-  margin: 0px;
-  /* font-family: 'Mohave', sans-serif; */
-  padding: 0px;
-  box-sizing: border-box;
+:root {
+  --form-color: #5fa8d3;
+  --background-color: #c4c4c4;
+  --primary-color-dark: #420355;
+  --primary-color-light: #a37ce0;
 }
 
+* {
+  margin: 0px;
+  font-family: 'Mohave', sans-serif;
+  padding: 0px;
+  box-sizing: border-box; /* so that padding/border does not increase height/width */
+  scroll-behavior: smooth;
+  scroll-margin-top: 30px;  /* clicking an anchor tag for an element will scroll the page to 30px above the element so it is not at the top of the page */
+}
+/* makes images easier to work with. makes grid work */
+img,
+picture{
+  max-width: 100%;
+  display: block;
+}
+
+html{
+  font-size: 62.5%;
+}
 body{
   color: #000000;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
+  /* font-family: 'Titillium Web', sans-serif; */
+  font-weight: 600;
 }
-h1, h2, h3{
-  font-weight: 500;
+.container{
+  background: var(--background-color);
+
+}
+h1, h2, h3, h4{
+  font-weight: 600;
 }
 
 h1 {
-  /* font-family: Mohave; */
   font-style: normal;
-  /* font-weight: 500; */
-  font-size: 32px;
-  /* line-height: 45px; */
-  color: #F5E6E6;
+  font-size: 3.6rem;
 }
 h2{
-  font-size: 28px;
+  font-size: 2.4rem;
 }
-h3{
-  font-size: 24px;
+h3 {
+  font-size: 2rem;
 }
-h4{
-  font-size: 20px;
+p {
+  font-size: 1.8rem;
 }
 
 /* actual CSS */
-#site-header{
-  background-color: #F5E6E6;
+#site-header {
+  background-color: var(--background-color);
   /* don't declare height early on. let things fall in place on their own */
-  padding: 20px; /*  */
+  /* padding: 0 15px;  */
 }
-.socials{
+.container {
+  width: 1210px;
+  /* width: 100%; */
+  /* fit the site on the center */
+  margin-left: auto; 
+  margin-right: auto;
+}
+.page-header {
+  /* to center logos and header elements */
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+/* .hamburger {
+  height: 40px;
+  margin: auto 0 auto 10px;
+} */
+.logo {
+  align-self: center;
+}
+/* .logo > img {
+  float: left;
+  
+} */
+
+section.first-sec {
+  object-fit: cover;
+  position: relative;
+  /* to center the h2 horizontally */
+  display: flex;
+  justify-content: center;
+}
+.find-out {
+  position: absolute;
+  font-size: 3rem;
+  top: 295px;
+  text-align: center;
+}
+nav, .navbar {
+  width: 100%;
+  position: absolute;
+  /* to center nav menu */
+  display: flex;
+  justify-content: space-around;
+
+}
+.navbar {
+  top: 30px;
+}
+.navbar li {
+  /* width: 100%; */
   list-style-type: none;
+  font-weight: 600;
+  font-size: 3.5rem;
+}
+.navbar a {
+  text-decoration: none;
+  color: rgb(198, 209, 216);
+  display: inline-block;   /* you can't apply transform on inline elements like <a> */
+  transition: color 300ms ease-in, transform 200ms ease-in, text-shadow 100ms ease-in;
+}
+.navbar a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  text-shadow: 0 -0.7px 2.5px #ffffff;
+}
+.description {
+  width: 70%;
+  margin: 12rem auto;
+}
+.description p {
+  font-size: 2.4rem;
+  text-align: center;
+}
+/* video player */
+/* .small img{
+  height: 92px;
+  margin: 10px 0;
+  display: block;
+} */
+/* .small{
+  float: right;
+} */
+/* .video-player{
+  position: relative;
+}
+.video-content{
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); 
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+.big img{
+  height: 300px;
+}
+.big{
+ float: left; 
+  padding: 10px;
+} */
+
+.video-gallery {
+  width: 90%;
+  margin: 12rem auto 0 auto;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  /* grid-auto-rows: minmax(100px, auto); */
+  gap: 8px;
+  background: linear-gradient(360deg, #420355, #a37ce0);
+  /* grid-template-areas: 
+  "img1 img1 img2"
+  "img1 img1 img3"; */
+}
+.video-gallery .vid-thumbnail {
+  /* width: 100%; */
+  /* height: 250px; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* cursor: pointer; */
+}
+
+/* thumbnails */
+.video-gallery .thumb-img1 {
+  /* grid-area: img1;
+  background-image: url("../thumbnails/vid1.png");  */
+  grid-column: 1;
+  grid-row: 1; 
+  /* height: 510px; */
+}
+.video-gallery .thumb-img2 {
+  /* grid-area: img2;
+  background-image: url("../thumbnails/vid2.png"); */
+  grid-column: 1;
+  grid-row: 2;
+}
+.video-gallery .thumb-img3 {
+  /* grid-area: img3;
+  background-image: url("../thumbnails/vid3.png"); */
+  grid-column: 2/3;
+  grid-row: 1/3;
+  height: 100%;
+  object-fit: cover;
+}
+.thumb-img3 img {
+  height: 100%;
+  object-fit: cover;
+}
+.video-gallery .thumb-img4 {
+  grid-column: 3;
+  grid-row: 1;
+}
+.video-gallery .thumb-img5 {
+  grid-column: 3;
+  grid-row: 2;
+}
+.vid-thumbnail {
+  width: 100%;
+  /* height: 100%;
+  background-color: #000000;
+  opacity: 0; */ 
+  position: relative;
+}
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.3);
+  opacity: 0; /* by default the overlay is hidden */
+  transition: opacity 0.25s;
+  backdrop-filter: blur(1.5px);
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-overlay:hover {
+  opacity: 1;
+}
+.play-btn {
+  width: 15%;
+  cursor: pointer;
+}
+#video-gallery {
+  position: relative;
+}
+.video-player {
+  /* dim background when the video is playing */
+  height: 100vh; 
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.9);
+  /* width: 70%; */
+  /* position: absolute; */
+  left: 0;
+  top: 0;
+  /* transform: translate(-50%, -50%); */
+  display: none; /* video is hidden by default when the page first loads */
+  transition: 250ms ease-in;
+}
+.video-player video {
+  width: 70%;
+  display: block;  /* remove extra gap at the bottom due to the container div */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* transition: 250ms ease-in; */
+}
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 2.5%;
+  cursor: pointer;
+  /* to make the button visible in both dark and light background */
+  outline: 1.5px solid #ffffff;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+
+
+
+/* stories carousel */
+.stories {
+  width: fit-content;
+  /* height: fit-content; */
+  line-height: 1; /* to make the 'stories' div the same height as the text - if no unit is specified with line-height value, the distance between the lines is set as this number multiplied by the current font-size (1 * font-size) */
+  margin: 15rem auto 9rem auto;
+  position: relative;    /* without this before and after elements move relative to the other parent 'container' so doing right: 0; moves them all the way to the right */
+}
+.stories > h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  /* width: 15%; */
+  margin: 0 auto;
+  text-align: center;
+  /* border: 8px solid;
+  border-image: linear-gradient(to left, #420355, #420355) 1 0; */
+}
+.stories::after,
+.stories::before {
+  content: '';
+  position: absolute;
+  width: 6rem;
+  height: 3rem;
+  /* border: 2px solid #000000; */
+}
+.stories::before {
+  right: -18px;
+  top: -15px;
+  border-top: 4px solid #000000;
+  border-right: 4px solid #000000;
+}
+.stories::after {
+  left: -18px;
+  bottom: -15px;
+  border-bottom: 4px solid #000000;
+  border-left: 4px solid #000000;
+}
+
+.stories-carousel {
+  position: relative;
+  height: 25rem;
+  width: 70%;
+  margin: 6rem auto 12rem auto;
+}
+.carousel-img {
+  width: 80%;
+  height: 20rem;
+  /* object-fit: cover; */
+  border-radius: 10px;
+  /* display: inline-block; */
+  overflow: hidden;
+}
+.carousel-img img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  transition: transform .5s ease;
+}
+.carousel-img img:hover {
+  transform: scale(1.2);
+}
+.carousel-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* border: 2px solid black; */
+}
+.carousel-txt {
+  margin: auto 0;
+}
+.carousel-txt p {
+  margin-top: 15px;
+  text-align: justify;
+}
+.carousel-container {
+  height: 85%;
+  position: relative;
+  overflow: hidden; /* now we can see both the buttons */
+}
+.carousel-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  height: 100%;
+  transition: transform 200ms ease-in;
+  /* transition-delay: 200ms; */
+}
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+}
+.carousel-btn {
+  position: absolute;
+  /* top: 50%; this puts the top of the button at the middle which you can see by increasing button height */
+  /* transform: translateY(-50%); it takes half of the buttons size and moves it up  so it is positioned exactly in the middle */
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.carousel-btn img {
+  width: 25px;
+}
+.carousel-btn--left {
+  left: calc(50% - 20px);
+}
+.carousel-btn--right {
+  left: calc(50% + 20px);
+}
+.is-hidden { filter: invert(0.30); }
+
+
+
+/* footer */
+.site-footer {
+  margin-top: 90px;
+  width: 100%;
+  background-color: #a37ce0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-top: 40px;
+}
+/* create a small shape to form a design */
+.site-footer::after,
+.site-footer::before {
+  position: absolute;
+  content: '';
+  width: 70px;
+  height: 70px;
+  background: #c4c4c4;
+  top: -60px;
+}
+.site-footer::before {
+  right: 50%;
+  transform: skew(0, 25deg);
+}
+.site-footer::after {
+  left: 50%;
+  transform: skew(0, -25deg);
+}
+.footer-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: justify;
+  /* gap: 10px; */
+  width: 80%;
+  margin: 2rem 0 3rem 0;
+}
+.footer-info h3 {
+  text-align: center;
+}
+/* .footer-info > * {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  flex: 1;
+} */
+.footer-info p {
+  list-style: none;
+  font-size: 1.6em; 
+}
+.middle-text {
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  padding: 0 1rem;
+}
+.left-text, .right-text {
+  padding: 0 1rem;
+}
+.site-footer > span {
+  font-size: 1.8rem;
+}
+.email-form {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.email-form * {
+  /* width: 60%; */
+  /* padding: 15px auto; */
+  margin: 5px;
+}
+.email-form input {
+  border: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 3px;
+  width: 70%;
+  outline: none;  /* removes default outline that appears when clicked */
+  border: 2px solid #ddd;
+}
+/* .email-form input:valid, */
+.email-form input:focus {
+  border-color: var(--form-color);
+}
+.email-form input:focus::placeholder {
+  color: transparent;
+}
+.email-form input:not(:placeholder-shown) {  /* when the placeholder is not showing i.e. when the use inputs some text, the font changes to something more strong  */
+  font-size: 16px;
+  padding: calc(8px - (16px - 14px) / 2);   /* there must be spaces around + and - operator */
+  font-weight: 600;
+}
+.signup-btn {
+  width: 25%;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  border: 2px solid var(--form-color);
+  transition: transform 250ms ease, background-color 250ms ease;
+}
+/* .signup-btn:focus, */
+.signup-btn:hover {
+  background-color: #2e8dc9;
+  box-shadow: rgba(248, 248, 248, 0.397) 0 4px 12px;
+  color: #ffffff;
+}
+.signup-btn:hover {
+  transform: translateY(-1.5px);
+}
+.happy-gif {
+  position: fixed;
+  top: 5px;
+  margin: 0 auto;
+  display: none;
+  z-index: 100;
+  width: 35%;
+  box-shadow: 0 0 15px 5px #0ff;
+  /* box-shadow: 0 0 15px 5px #466b6b; */
+}
+.socials {
+  display: flex;
+  margin: 2rem auto 6rem auto;
+  width: 13%;
+  justify-content: space-around;
+  position: relative;
+}
+.socials li {  /* only selecting socials does not change the list items*/
+  list-style-type: none;  
+}
+.socials li a {
   display: inline-block;
+  /* filter: invert(1); */
+  transform: scale(1.2);
+  transition: transform 300ms ease;
+}
+.socials li a:hover {
+  transform: scale(1.2) translateY(-8px);  /* positive value moves it down along Y-axis, negative value moves it up */
+}
+.socials span {
+  font-size: 15px;
+}
+.socials * {
+  top: 5px;
+  height: 20px;
 }
