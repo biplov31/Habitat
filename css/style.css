@@ -22,7 +22,8 @@ picture{
 }
 
 html{
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
+  font-size: 1.5vmin;  /* font size changes relative to the screen size so we don't have to modify for every screen size using media query */
 }
 body{
   color: #000000;
@@ -58,8 +59,8 @@ p {
   /* padding: 0 15px;  */
 }
 .container {
-  width: 1210px;
-  /* width: 100%; */
+  max-width: 1210px; /* site width is 100% but it doesn't go beyond 1210px */
+  width: 100%;
   /* fit the site on the center */
   margin-left: auto; 
   margin-right: auto;
@@ -89,7 +90,7 @@ section.first-sec {
   display: flex;
   justify-content: center;
 }
-.find-out {
+.bg-img-text {
   position: absolute;
   font-size: 3rem;
   top: 295px;
@@ -123,6 +124,7 @@ nav, .navbar {
   transform: translateY(-2px);
   text-shadow: 0 -0.7px 2.5px #ffffff;
 }
+
 .description {
   width: 70%;
   margin: 12rem auto;
@@ -169,11 +171,12 @@ nav, .navbar {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   /* grid-auto-rows: minmax(100px, auto); */
-  gap: 8px;
+  gap: 0.8rem;
   background: linear-gradient(360deg, #420355, #a37ce0);
-  /* grid-template-areas: 
-  "img1 img1 img2"
-  "img1 img1 img3"; */
+  /* using grid-template-areas because it was to tough to apply media queries on the grid otherwise */
+  grid-template-areas: 
+  "img1 img3 img2"
+  "img4 img3 img5";
 }
 .video-gallery .vid-thumbnail {
   /* width: 100%; */
@@ -186,37 +189,34 @@ nav, .navbar {
 
 /* thumbnails */
 .video-gallery .thumb-img1 {
-  /* grid-area: img1;
-  background-image: url("../thumbnails/vid1.png");  */
-  grid-column: 1;
-  grid-row: 1; 
-  /* height: 510px; */
+  grid-area: img1;
+  /* background-image: url("../thumbnails/vid1.png");  */
+  /* grid-column: 1;
+  grid-row: 1;  */
 }
 .video-gallery .thumb-img2 {
-  /* grid-area: img2;
-  background-image: url("../thumbnails/vid2.png"); */
-  grid-column: 1;
-  grid-row: 2;
+  grid-area: img2;
+  /* grid-column: 1;
+  grid-row: 2; */
 }
 .video-gallery .thumb-img3 {
-  /* grid-area: img3;
-  background-image: url("../thumbnails/vid3.png"); */
-  grid-column: 2/3;
-  grid-row: 1/3;
-  height: 100%;
-  object-fit: cover;
+  grid-area: img3;
+  /* grid-column: 2/3;
+  grid-row: 1/3; */
 }
 .thumb-img3 img {
   height: 100%;
   object-fit: cover;
 }
 .video-gallery .thumb-img4 {
-  grid-column: 3;
-  grid-row: 1;
+  grid-area: img4;
+  /* grid-column: 3;
+  grid-row: 1; */
 }
 .video-gallery .thumb-img5 {
-  grid-column: 3;
-  grid-row: 2;
+  grid-area: img5;
+  /* grid-column: 3;
+  grid-row: 2; */
 }
 .vid-thumbnail {
   width: 100%;
@@ -315,16 +315,16 @@ nav, .navbar {
   /* border: 2px solid #000000; */
 }
 .stories::before {
-  right: -18px;
-  top: -15px;
-  border-top: 4px solid #000000;
-  border-right: 4px solid #000000;
+  right: -1.8rem;
+  top: -1.5rem;
+  border-top: 0.5rem solid #000000;
+  border-right: 0.5rem solid #000000;
 }
 .stories::after {
-  left: -18px;
-  bottom: -15px;
-  border-bottom: 4px solid #000000;
-  border-left: 4px solid #000000;
+  left: -1.8rem;
+  bottom: -1.5rem;
+  border-bottom: 0.5rem solid #000000;
+  border-left: 0.5rem solid #000000;
 }
 
 .stories-carousel {
@@ -382,6 +382,7 @@ nav, .navbar {
   width: 100%;
 }
 .carousel-btn {
+  margin-top: 3rem;
   position: absolute;
   /* top: 50%; this puts the top of the button at the middle which you can see by increasing button height */
   /* transform: translateY(-50%); it takes half of the buttons size and moves it up  so it is positioned exactly in the middle */
@@ -392,13 +393,13 @@ nav, .navbar {
   cursor: pointer;
 }
 .carousel-btn img {
-  width: 25px;
+  width: 2.6rem;
 }
 .carousel-btn--left {
-  left: calc(50% - 20px);
+  left: calc(50% - 2rem);
 }
 .carousel-btn--right {
-  left: calc(50% + 20px);
+  left: calc(50% + 2rem);
 }
 .is-hidden { filter: invert(0.30); }
 
@@ -413,6 +414,7 @@ nav, .navbar {
   display: grid;
   place-items: center;
   padding-top: 40px;
+  border-radius: 15px 15px 0 0;
 }
 /* create a small shape to form a design */
 .site-footer::after,
@@ -439,7 +441,7 @@ nav, .navbar {
   text-align: justify;
   /* gap: 10px; */
   width: 80%;
-  margin: 2rem 0 3rem 0;
+  margin: 2rem 0 5rem 0;
 }
 .footer-info h3 {
   text-align: center;
@@ -451,7 +453,6 @@ nav, .navbar {
   flex: 1;
 } */
 .footer-info p {
-  list-style: none;
   font-size: 1.6em; 
 }
 .middle-text {
@@ -480,8 +481,8 @@ nav, .navbar {
   border: none;
   appearance: none;
   background: #f2f2f2;
-  padding: 8px;
-  font-size: 14px;
+  padding: 0.8rem;
+  font-size: 1.4rem;
   border-radius: 3px;
   width: 70%;
   outline: none;  /* removes default outline that appears when clicked */
@@ -495,13 +496,13 @@ nav, .navbar {
   color: transparent;
 }
 .email-form input:not(:placeholder-shown) {  /* when the placeholder is not showing i.e. when the use inputs some text, the font changes to something more strong  */
-  font-size: 16px;
+  font-size: 1.6rem;
   padding: calc(8px - (16px - 14px) / 2);   /* there must be spaces around + and - operator */
   font-weight: 600;
 }
 .signup-btn {
   width: 25%;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: 1.25;
   cursor: pointer;
@@ -510,12 +511,12 @@ nav, .navbar {
 }
 /* .signup-btn:focus, */
 .signup-btn:hover {
-  background-color: #2e8dc9;
+  background-color: #4c3166;
   box-shadow: rgba(248, 248, 248, 0.397) 0 4px 12px;
   color: #ffffff;
 }
 .signup-btn:hover {
-  transform: translateY(-1.5px);
+  transform: translateY(-2px);
 }
 .happy-gif {
   position: fixed;
@@ -529,7 +530,7 @@ nav, .navbar {
 }
 .socials {
   display: flex;
-  margin: 2rem auto 6rem auto;
+  margin: 4rem auto 6rem auto;
   width: 13%;
   justify-content: space-around;
   position: relative;
@@ -546,10 +547,90 @@ nav, .navbar {
 .socials li a:hover {
   transform: scale(1.2) translateY(-8px);  /* positive value moves it down along Y-axis, negative value moves it up */
 }
-.socials span {
-  font-size: 15px;
-}
 .socials * {
   top: 5px;
-  height: 20px;
+  height: 2rem;
 }
+
+/* responsiveness */
+@media only screen and (min-width: 360px) and (max-width: 900px) {
+  .page-header * { 
+    margin: 0 auto;
+    height: 6rem;
+  }
+  .description {
+    width: 90%;
+    margin: 7rem auto;
+  }
+  .find-out, .animals {
+    display: none;
+  }
+  .video-gallery {
+    width: 98%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'img1 img2'
+    'img3 img3'
+    'img4 img5';
+  }
+  .thumb-img3 {
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden;
+    background-size: cover; 
+    background-position: center; */
+  }
+  .thumb-img3 > img {
+    height: 100%;
+    object-fit: contain;
+    max-height: 100vh;
+  }
+  .stories-carousel {
+    width: 80%
+  }
+  .stories-carousel {
+    margin-top: 10rem;
+    margin-bottom: 30rem;
+    /* z-index: 1000; */
+  }
+  .carousel-container {
+    height: 150%;  /* text was not visible due to overflow: hidden */
+    overflow: hidden;
+  }
+  .carousel-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
+  .carousel-img {
+    width: 70%;
+    max-width: 350px;
+  }
+  .email-form, .socials {
+    width: 50%;
+  }
+  .footer-info {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 900px) and (max-width: 1000px) {
+  .page-header img {
+    height: 8rem;
+  }
+  .stories-carousel {
+    width: 80%;
+  }
+  .carousel-img {
+    width: 90%;
+  }
+  
+}
+@media only screen and (max-width: 1190px) {
+  .bg-img-text {
+    display: none;
+  }
+  
+}
+
