@@ -586,6 +586,14 @@ nav, .navbar {
     object-fit: contain;
     max-height: 100vh;
   }
+  .video-player video {
+    width: 100%;
+  }
+  .close-btn {
+    width: 5%;
+    top: 30%;
+    right: 3%;
+  }
   .stories-carousel {
     width: 80%
   }
