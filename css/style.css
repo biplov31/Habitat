@@ -13,6 +13,7 @@
   box-sizing: border-box; /* so that padding/border does not increase height/width */
   scroll-behavior: smooth;
   scroll-margin-top: 30px;  /* clicking an anchor tag for an element will scroll the page to 30px above the element so it is not at the top of the page */
+  -webkit-tap-highlight-color: transparent;
 }
 /* makes images easier to work with. makes grid work */
 img,
@@ -165,7 +166,7 @@ nav, .navbar {
 
 .video-gallery {
   width: 90%;
-  margin: 12rem auto 0 auto;
+  margin: 0 auto;
   display: grid;
   position: relative;
   grid-template-columns: repeat(3, 1fr);
@@ -446,12 +447,12 @@ nav, .navbar {
 .footer-info h3 {
   text-align: center;
 }
-/* .footer-info > * {
-  flex-grow: 1;
+.footer-info > * {
+  /* flex-grow: 1;
   flex-shrink: 1;
-  flex-basis: 0;
-  flex: 1;
-} */
+  flex-basis: 0; */
+  flex: 1; /* items inside the flex box cover equal spaces */
+} 
 .footer-info p {
   font-size: 1.6em; 
 }
@@ -467,15 +468,17 @@ nav, .navbar {
   font-size: 1.8rem;
 }
 .email-form {
-  width: 30%;
+  margin: 0 auto;
+  width: 28%;
   display: flex;
   justify-content: center;
   flex-direction: row;
+  gap: 5px;
 }
 .email-form * {
   /* width: 60%; */
   /* padding: 15px auto; */
-  margin: 5px;
+  /* margin: 5px; */
 }
 .email-form input {
   border: none;
@@ -531,7 +534,7 @@ nav, .navbar {
 .socials {
   display: flex;
   margin: 4rem auto 6rem auto;
-  width: 13%;
+  width: 15%;
   justify-content: space-around;
   position: relative;
 }
@@ -548,12 +551,12 @@ nav, .navbar {
   transform: scale(1.2) translateY(-8px);  /* positive value moves it down along Y-axis, negative value moves it up */
 }
 .socials * {
-  top: 5px;
+  /* top: 5px; */
   height: 2rem;
 }
 
 /* responsiveness */
-@media only screen and (min-width: 360px) and (max-width: 900px) {
+@media only screen and (min-width: 360px) and (max-width: 800px) {
   .page-header * { 
     margin: 0 auto;
     height: 6rem;
@@ -568,7 +571,7 @@ nav, .navbar {
   .video-gallery {
     width: 98%;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 20rem 30rem 20rem;
     grid-template-areas: 
     'img1 img2'
     'img3 img3'
@@ -581,9 +584,10 @@ nav, .navbar {
     background-size: cover; 
     background-position: center; */
   }
-  .thumb-img3 > img {
+  .vid-thumbnail > img {
+    width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     max-height: 100vh;
   }
   .video-player video {
@@ -591,7 +595,8 @@ nav, .navbar {
   }
   .close-btn {
     width: 5%;
-    top: 30%;
+    position: fixed;
+    top: 3%;
     right: 3%;
   }
   .stories-carousel {
@@ -616,14 +621,17 @@ nav, .navbar {
     width: 70%;
     max-width: 350px;
   }
-  .email-form, .socials {
-    width: 50%;
+  .email-form {
+    width: 40%;
+  }
+  .socials * {
+    margin: 0 1rem;
   }
   .footer-info {
     width: 95%;
   }
 }
-@media only screen and (min-width: 900px) and (max-width: 1000px) {
+@media only screen and (min-width: 850px) and (max-width: 1000px) {
   .page-header img {
     height: 8rem;
   }
@@ -633,7 +641,6 @@ nav, .navbar {
   .carousel-img {
     width: 90%;
   }
-  
 }
 @media only screen and (max-width: 1190px) {
   .bg-img-text {
